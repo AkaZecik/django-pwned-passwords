@@ -1,6 +1,11 @@
+import django
 from django.core.exceptions import ValidationError
 from django.conf import settings
-from django.utils.translation import ugettext as _
+
+if django.VERSION >= (4, 0):
+    from django.utils.translation import gettext as _
+else:
+    from django.utils.translation import ugettext as _
 
 import hashlib
 import requests
